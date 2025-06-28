@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle Switches</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            background-color: palevioletred; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        
+        .container {
+            background-color: lightgrey;
+            width: 300px;
+            border: 15px solid green;
+            padding: 20px;
+            margin: 20px auto; 
+        }
+
+        .switch-box {
+            background-color: white; 
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            gap: 20px; 
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 36px;
+            background-color: red;
+            border-radius: 20px;
+            border: 2px solid gray;
+        }
+
+        .toggle:after {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: gray;
+            top: 1px; 
+            left: 1px;
+            transition: all 0.5s;
+        }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            text-align: center; 
+        }
+
+        .checkbox:checked + .toggle::after {
+            left: 49px; 
+        }
+
+        .checkbox:checked + .toggle {
+            background-color: yellowgreen;
+        }
+
+        .checkbox { 
+            display: none;
+        }
+
+        .btn-default {
+            background-color: purple;
+            border: 1px solid #ced4da;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn-default:hover {
+            background-color: #e2e6ea;
+        }
+    </style>
+</head>
+<body>
+    <h1>SWITCH CONTROLLER</h1>
+    <div class="container">
+        <form method="post" action="{{ url_for('switch') }}">
+            <div class="switch-box">
+                <div>
+                    <label for="switch1"><b>Switch1</b></label>
+                    <input type="checkbox" id="switch1" name="switch1" class="checkbox" {% if switch1 %} checked {% endif %} />
+                    <label for="switch1" class="toggle">
+                        <p>OFF &nbsp;&nbsp; ON</p>
+                    </label>
+                </div>
+                <div>
+                    <label for="switch2"><b>Switch2</b></label>
+                    <input type="checkbox" id="switch2" name="switch2" class="checkbox" {% if switch2 %} checked {% endif %} />
+                    <label for="switch2" class="toggle">
+                        <p>OFF &nbsp;&nbsp; ON</p>
+                    </label>
+                </div>
+                <button class="btn btn-default"><b>SET</b></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

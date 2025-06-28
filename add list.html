@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+    <style>
+        .header {
+            background: #1abc9c;
+            padding: 20px 10px;
+            color: black;
+            font-size: 28pt;
+            text-align: center;
+            height: 40px;
+            text-shadow: 1px 1px 11px white;
+        }
+        .form-group {
+            margin-top: 10px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .well {
+            margin-top: 20px;
+            text-align: center;
+            width: 50%;
+            background: #1abc9c;
+            border: 20px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px auto;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a>ADD NEW</a>
+    </div>
+    <div class="well well-sm center">
+        <h4>ADD LIST</h4>
+        <hr>
+        
+        <form method="post" action="{{ url_for('submit') }}">
+        <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" maxlength="10" size="20" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="reg">Reg.No:</label>
+                <input type="text" name="reg" maxlength="10" size="20" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="mark">Marks:</label>
+                <input type="text" name="mark" maxlength="10" size="20" required><br><br>
+            </div>
+            <div class="center">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

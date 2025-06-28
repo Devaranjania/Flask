@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mark List</title>
+    <style>
+        .header {
+            background: #1abc9c;
+            padding: 20px 10px;
+            color: black;
+            font-size: 28pt;
+            text-align: center;
+            height: 45px;
+            text-shadow: 1px 1px 11px white;
+        }
+        .pull-right {
+        float: right;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .rightAccount {
+            padding-right: 11px;
+            padding: 7px;
+        }
+
+        .rightAccount a {
+            color: white;
+            text-decoration: none;
+            font-size: 26pt;
+            display: block;
+            text-align: center;
+        }
+        .clear {
+             clear: both;
+        }
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 75%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a>Mark Details</a>
+        <div class="pull-right flex rightAccount">
+            <a href="{{ url_for('addlist') }}">
+                <button class="btn btn-default pull-right">Add Record</button>
+            </a>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+    <table class="table table-border">
+        <tr>
+            <th>Name</th>
+            <th>Reg.No</th>
+            <th>Marks</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>{{ message }}</h2>
+</body>
+</html>
